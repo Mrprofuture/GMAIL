@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Email Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .email-item {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My Email Client</h1>
+    </div>
+    <ul class="email-list" id="email-list">
+        <!-- Emails will be inserted here by JavaScript -->
+    </ul>
+    <script>
+        // Simulated backend data
+        const emails = [
+            { id: 1, subject: 'Hello World', body: 'This is a test email.' },
+            { id: 2, subject: 'HTML and JavaScript', body: 'Building a simple email client.' },
+        ];
+
+        // Function to display emails
+        function displayEmails(emailData) {
+            const emailList = document.getElementById('email-list');
+            emailList.innerHTML = '';
+
+            emailData.forEach(email => {
+                const emailItem = document.createElement('li');
+                emailItem.className = 'email-item';
+
+                const emailSubject = document.createElement('h2');
+                emailSubject.textContent = email.subject;
+
+                const emailBody = document.createElement('p');
+                emailBody.textContent = email.body;
+
+                emailItem.appendChild(emailSubject);
+                emailItem.appendChild(emailBody);
+                emailList.appendChild(emailItem);
+            });
+        }
+
+        // Display emails on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            displayEmails(emails);
+        });
+    </script>
+</body>
+</html>
