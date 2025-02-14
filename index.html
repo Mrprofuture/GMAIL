@@ -3,71 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Email Client</title>
+    <title>Your Business Name</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .header {
-            background-color: #282c34;
-            color: white;
-            padding: 20px;
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-        }
-        .email-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .email-item {
-            background-color: white;
-            margin: 10px;
-            padding: 20px;
-            border: 1px solid #ccc;
+            padding: 1rem 0;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>My Email Client</h1>
-    </div>
-    <ul class="email-list" id="email-list">
-        <!-- Emails will be inserted here by JavaScript -->
-    </ul>
-    <script>
-        // Simulated backend data
-        const emails = [
-            { id: 1, subject: 'Hello World', body: 'This is a test email.' },
-            { id: 2, subject: 'HTML and JavaScript', body: 'Building a simple email client.' },
-        ];
+    <header>
+        <div class="container">
+            <h1>Your Business Name</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        // Function to display emails
-        function displayEmails(emailData) {
-            const emailList = document.getElementById('email-list');
-            emailList.innerHTML = '';
+    <section id="home">
+        <div class="container">
+            <h2>Welcome to Your Business</h2>
+            <p>Brief introduction about your business.</p>
+        </div>
+    </section>
 
-            emailData.forEach(email => {
-                const emailItem = document.createElement('li');
-                emailItem.className = 'email-item';
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Information about your business, mission, and values.</p>
+        </div>
+    </section>
 
-                const emailSubject = document.createElement('h2');
-                emailSubject.textContent = email.subject;
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>Details of the services you offer.</p>
+        </div>
+    </section>
 
-                const emailBody = document.createElement('p');
-                emailBody.textContent = email.body;
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Contact information and a contact form.</p>
+        </div>
+    </section>
 
-                emailItem.appendChild(emailSubject);
-                emailItem.appendChild(emailBody);
-                emailList.appendChild(emailItem);
-            });
-        }
-
-        // Display emails on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            displayEmails(emails);
-        });
-    </script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Business Name. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
